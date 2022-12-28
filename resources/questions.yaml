@@ -1,0 +1,119 @@
+PUT /
+
+- id: question-1
+  resourceType: Question
+  author:
+    id: b4e76b90-e2bf-43c3-b6dc-55d24901c4dc
+    resourceType: User
+  question: "Which field can be found in Practitioner and PractitionerRole?"
+  answer: Telecom
+  options:
+  - value: Period
+    tip: Oops, you can find it in PractitinerRole only!
+  - value: Location
+    tip: Oops, you can find it in PractitinerRole only!
+  - value: Specialty
+    tip: Oops, you can find it in PractitinerRole only!
+  - value: Telecom
+
+- id: question-2
+  resourceType: Question
+  author:
+    id: b4e76b90-e2bf-43c3-b6dc-55d24901c4dc
+    resourceType: User
+  question: "If Condition is abated then clinicalStatus can't be:"
+  answer: "recurrence (or relapse, or active)"
+  options:
+  - value: inactive
+  - value: resolved
+  - value: remission
+  - value: "recurrence (or relapse, or active)"
+
+- id: question-3
+  resourceType: Question
+  author:
+    id: b4e76b90-e2bf-43c3-b6dc-55d24901c4dc
+    resourceType: User
+  question: "Which resource is missed in this Schema?\nServiceRequest -> Appointment -> XXX -> Schedule"
+  answer: Slot
+  explanation: Slot resources are used to provide time-slots that can be booked using an appointment. They do not provide any information about appointments that are available, just the time, and optionally what the time can be used for. These are effectively spaces of free/busy time.
+
+- id: question-4
+  resourceType: Question
+  author:
+    id: b4e76b90-e2bf-43c3-b6dc-55d24901c4dc
+    resourceType: User
+  question: XXX is a record of a proposal/plan or order for a service to be performed that would result in a Procedure, Observation, DiagnosticReport, ImagingStudy or similar resource.
+  answer: ServiceRequest
+  options:
+  - value: ServiceRequest
+  - value: Task
+    tip: "In contrast to ServiceRequest, Task which spans both intent and event and tracks the execution through to completion and is intended for \"administrative\" actions like requesting and tracking things to be done to a record, or keeping track of a checklist of steps such to be performed as part of a fulfilment process. A ServiceRequest can be higher-level authorization that triggered the creation of Task, or it can be the \"request\" resource Task is seeking to fulfill."
+  - value: CommunicationRequest
+    tip: "ServiceRequest and CommunicationRequest are related. A CommunicationRequest is a request to merely disclose information. Whereas a ServiceRequest would be used to request information as part of training or counseling - i.e. when the process will involve verification of the patient's comprehension or an attempt to change the patient's mental state. In some workflows both may exist. For example, upon receiving a CommunicationRequest a practitioner might initiate a ServiceRequest."
+
+
+- id: question-5
+  resourceType: Question
+  author:
+    id: b4e76b90-e2bf-43c3-b6dc-55d24901c4dc
+    resourceType: User
+  question: What Condition status is called the same as Eminem's album?
+  explanation: Relapse is the sixth studio album by American rapper Eminem. It was released on May 15, 2009
+  answer: Relapse
+  options:
+  - value: Recurrence
+  - value: Remission
+  - value: Relapse
+  - value: Resolved
+
+
+- id: question-6
+  resourceType: Question
+  author:
+    id: b4e76b90-e2bf-43c3-b6dc-55d24901c4dc
+    resourceType: User
+  question: |
+    A doctor cames to Patient's room,
+    He said his parents want to bloom
+    His story looks like total fiction,
+    Brain problem should be in ...
+  answer: Condition
+  explanation: A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.
+  options:
+  - value: Composition
+    tip: A set of healthcare-related information that is assembled together into a single logical package that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement.
+  - value: Condition
+  - value: PlanDefinition
+    tip: This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical and non-clinical artifacts such as clinical decision support rules, order sets, protocols, and drug quality specifications.
+  - value: Subscription 
+    tip: The subscription resource is used to define a push-based subscription from a server to another system. Once a subscription is registered with the server, the server checks every resource that is created or updated, and if the resource matches the given criteria, it sends a message on the defined "channel" so that another system can take an appropriate action.
+
+- id: question-7
+  resourceType: Question
+  author:
+    id: "0fcdbfab-94d2-41bb-b027-ef0486200d1e"
+    resourceType: User
+  question: The first person every Patient sees is a receptionist. What resource should we use to keep this important person?
+  answer: Practitioner
+  options:
+  - value: RelatedPerson
+    tip: RelatedPersons typically have a personal or non-healthcare-specific professional relationship to the patient.
+  - value: Practitioner
+  - value: Person
+  - value: PractitionerRole
+    tip: Mostly used to discribe certain role of the Practitioner in separate organization
+
+- id: question-8
+  resourceType: Question
+  author:
+    id: "0fcdbfab-94d2-41bb-b027-ef0486200d1e"
+    resourceType: User
+  question: What resource should we use for a payed Claim?
+  explanation: The ExplanationOfBenefit (EOB) resource combines key information from a Claim, a ClaimResponse and optional Account information to inform a patient of the goods and services rendered by a provider and the settlement made under the patient's coverage in respect of that Claim. The ExplanationOfBenefit resource may also be used as a resource for data exchange for bulk data analysis, as the resource encompasses Claim, ClaimResponse and Coverage/Eligibility information.
+  answer: ExplanationOfBenefit
+  options:
+  - value: ExplanationOfBenefit
+  - value: PaymentNotice
+  - value: ClaimResponse
+  - value: ChargeItem
