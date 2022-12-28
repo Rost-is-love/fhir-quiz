@@ -26,6 +26,11 @@ PUT /
   type: resource
   isOpen: true
 
+- id: QuestionSuggestion
+  resourceType: Entity
+  type: resource
+  isOpen: true
+
 - id: redirects
   resourceType: AidboxConfig
   redirects:
