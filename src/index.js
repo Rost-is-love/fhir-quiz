@@ -3,9 +3,9 @@ import ReactDOM from "react-dom/client";
 import "./index.scss";
 import LogInPage from "./pages/LogInPage";
 import ChooseModePage from "./pages/ChooseModePage";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <LogInPage />,
