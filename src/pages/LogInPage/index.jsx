@@ -14,7 +14,7 @@ export default function LogInPage() {
           <div className="flex mt-4 p-1 gap-x-2 rounded-xl bg-gradient-to-r from-yellow-400 to-pink-600">
             <a
               href="https://fhirquiz.edge.aidbox.app/auth/redirect/github"
-              className="p-6 flex items-center rounded-xl text-xl font-medium justify-center w-full bg-transparent hover:text-white duration-500"
+              className="p-6 flex items-center rounded-xl text-2xl font-medium justify-center w-full bg-transparent hover:text-white duration-500"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -28,6 +28,11 @@ export default function LogInPage() {
           </div>
         </div>
       </div>
+      {/* <div className="stars-bg">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+      </div> */}
     </div>
   );
 }

@@ -9,12 +9,12 @@ import Layout from "./pages/Layout";
 import QuestionSuggestionPage from "./pages/QuestionSuggestionPage";
 import WhereIsQuiz from "./pages/WhereIsQuiz";
 import { createHashRouter, RouterProvider } from "react-router-dom";
+import { main } from "./utils";
 
 const router = createHashRouter([
   {
     path: "/",
     element: <LogInPage />,
-    children: [],
   },
   {
     path: "/questions",
@@ -36,7 +36,10 @@ const router = createHashRouter([
     path: "/where-is-quiz",
     element: <WhereIsQuiz />,
   },
-
+  {
+    path: "*",
+    element: <LogInPage />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -44,3 +47,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <RouterProvider router={router} />
   </Layout>
 );
+
+main();
