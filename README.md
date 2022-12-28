@@ -40,7 +40,7 @@ PUT /IdentityProvider/github
 type: github
 title: GitHub
 active: true
-system: 'github'
+system: 'https://github.com'
 scopes:
   - profile
   - openid
