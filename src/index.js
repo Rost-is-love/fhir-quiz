@@ -4,6 +4,7 @@ import "./index.scss";
 import LogInPage from "./pages/LogInPage";
 import QuestionListPage from "./pages/QuestionListPage";
 import ChooseModePage from "./pages/ChooseModePage";
+import AuthorPage from "./pages/AuthorPage";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 
 const router = createHashRouter([
@@ -19,6 +20,10 @@ const router = createHashRouter([
   {
     path: "/mode",
     element: <ChooseModePage />,
+  },
+  {
+    path: "/authors",
+    element: <AuthorPage />,
   },
 ]);
 

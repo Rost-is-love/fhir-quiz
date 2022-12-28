@@ -5,7 +5,7 @@ export default function LogInPage() {
     <div className="first">
       <div className="first__container">
         <div className="w-full p-6 lg:max-w-md z-50">
-          <h1 className="text-3xl mb-7 font-semibold text-center text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600">
+          <h1 className="text-7xl mb-7 font-semibold text-center text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600">
             FHIR quiz
           </h1>
           <p className="text-center mb-7 text-xl text-white">
