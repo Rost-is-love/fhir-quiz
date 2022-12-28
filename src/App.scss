@@ -26,10 +26,16 @@
 }
 
 .content {
-  width: 500px;
+  width: 900px;
 }
 .question-list .question {
   margin-bottom: 20px;
+  color: white;
+}
+
+.question-list .first__container {
+  height: auto;
+  min-height: auto;
 }
 
 .first {

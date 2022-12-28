@@ -15,22 +15,35 @@ export default function QuestionListPage() {
   });
 
   return (
-    <div>
-      <div className="centered content question-list">
-        <header>
-          <h1>Questions</h1>
-        </header>
+    <div className="first question-list">
+      <div className="first__container">
+        <div className="w-full p-6 lg:max-w-md z-50">
+          <h1 className="text-3xl mb-7 font-semibold text-center text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600">
+            A long time ago in a galaxy far, far away....
+          </h1>
 
-        <div className="grid">
-          {questionsfull.map((q, idx)=>{
-            return (<div className="question" key={idx}>
-                    <span> {q.resource.question} </span>
-                    <span> {q.resource.author.id} </span>
-                    </div>)
-          })}
         </div>
 
       </div>
+
+      <div>
+        <div className="centered content">
+          <header>
+            <h1>Questions</h1>
+          </header>
+
+          <div className="grid">
+            {questionsfull.map((q, idx)=>{
+              return (<div className="question" key={idx}>
+                        <span className="counter"> {idx} </span>
+                        <span className="name"> {q.resource.question} </span>
+                      </div>)
+            })}
+          </div>
+
+        </div>
+      </div>
+
     </div>
   );
 }
