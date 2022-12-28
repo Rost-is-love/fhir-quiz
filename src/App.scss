@@ -38,6 +38,18 @@
   min-height: auto;
 }
 
+.my-button {
+  border: 2px solid;
+  border-image-source: linear-gradient(257.33deg, #FFB800 0%, #FF00C7 100%);
+
+}
+
+html {
+  min-height: 100%;
+  background-color: black;
+  background: linear-gradient(to top, #000840 0%, #000 100%);
+}
+
 .first {
   position: relative;
   background: linear-gradient(to top, #000840 0%, #000 100%);
@@ -139,4 +151,10 @@ $shadows-big: multiple-box-shadow(100);
   to {
     transform: translateY(-2000px);
   }
+}
+
+.root {
+  width: 900px;
+  margin: 0 auto;
+
 }

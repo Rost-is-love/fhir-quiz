@@ -5,6 +5,9 @@ import LogInPage from "./pages/LogInPage";
 import QuestionListPage from "./pages/QuestionListPage";
 import ChooseModePage from "./pages/ChooseModePage";
 import AuthorPage from "./pages/AuthorPage";
+import Layout from "./pages/Layout";
+import QuestionSuggestionPage from "./pages/QuestionSuggestionPage";
+import WhereIsQuiz from "./pages/WhereIsQuiz";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 
 const router = createHashRouter([
@@ -25,8 +28,19 @@ const router = createHashRouter([
     path: "/authors",
     element: <AuthorPage />,
   },
+  {
+    path: "/suggest",
+    element: <QuestionSuggestionPage />,
+  },
+  {
+    path: "/where-is-quiz",
+    element: <WhereIsQuiz />,
+  },
+
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
+  <Layout>
+    <RouterProvider router={router} />
+  </Layout>
 );

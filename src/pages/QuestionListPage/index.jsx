@@ -15,8 +15,8 @@ export default function QuestionListPage() {
   });
 
   return (
-    <div className="first question-list">
-      <div className="first__container">
+    <div className="question-list">
+      <div className="">
         <div className="w-full p-6 lg:max-w-md z-50">
           <h1 className="text-3xl mb-7 font-semibold text-center text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600">
             A long time ago in a galaxy far, far away....
