@@ -2,9 +2,9 @@ import "../../App.scss";
 
 function Person({name, avatarUrl, github}) {
   return (
-    <a href={"https://github.com/" + github} target="_blank">
+    <a href={"https://github.com/" + github} target="_blank" rel="noreferrer">
      <div>
-      <img className="rounded-full w-40" src={avatarUrl} />
+         <img className="rounded-full w-40" src={avatarUrl} alt={name}/>
         <div className="text-white">{name}</div>
         </div>
         </a>
