@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.scss";
 import LogInPage from "./pages/LogInPage";
 import QuestionListPage from "./pages/QuestionListPage";
+import QuestionPage from "./pages/QuestionPage";
 import ChooseModePage from "./pages/ChooseModePage";
 import AuthorPage from "./pages/AuthorPage";
 import Layout from "./pages/Layout";
@@ -19,6 +20,10 @@ const router = createHashRouter([
   {
     path: "/questions",
     element: <QuestionListPage />,
+  },
+  {
+    path: "/questions/:id",
+    element: <QuestionPage />,
   },
   {
     path: "/mode",

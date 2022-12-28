@@ -26,7 +26,7 @@ PUT /
   type: resource
   isOpen: true
 
-- id: QuestionSuggestion
+- id: Like
   resourceType: Entity
   type: resource
   isOpen: true
@@ -37,7 +37,6 @@ PUT /
     default-page: /Static/index.html/$show
 
 ```
-
 
 ```yaml
 PUT /IdentityProvider/github
@@ -58,34 +57,27 @@ client:
   redirect_uri: 'https://fhirquiz.edge.aidbox.app/auth/callback/github'
 ```
 
-
 id: Question
 resourceType: Entity
 type: resource
 isOpen: true
 
-
 Question:
+
 - question
 - answer
 - explanation
 - options
 - author
 
-
 QuestionResponse:
+
 - question (reference Question)
 - answer (last provided answer)
 - user
 
-
 Quiz/xmas-quiz
 
-
-# 
+#
 
 https://fhirquiz.edge.aidbox.app/auth/callback/github
-
-
-
-
