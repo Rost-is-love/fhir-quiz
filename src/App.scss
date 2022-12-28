@@ -21,6 +21,17 @@
   color: #61dafb;
 }
 
+.centered {
+  margin: auto;
+}
+
+.content {
+  width: 500px;
+}
+.question-list .question {
+  margin-bottom: 20px;
+}
+
 .first {
   position: relative;
   background: linear-gradient(to top, #000840 0%, #000 100%);
