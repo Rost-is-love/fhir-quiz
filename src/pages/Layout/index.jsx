@@ -15,7 +15,9 @@ export default function LogInPage({children}) {
         <div className="">
             <div className="mt-4 mb-12 mx-4 flex justify-between text-white">
 
-                <div className="text-3xl font-bold leading-normal text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600">FHIR quiz</div>
+                <div className="text-3xl cursor-pointer underline leading-loose font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600 transition-all duration-1000 hover:from-pink-600 hover:to-yellow-400">
+                    <a href="#/"> FHIR quiz</a>
+                </div>
 
                 <div className="flex items-center gap-4">
                     <Link text="Where is quiz?" href="#/where-is-quiz" />
