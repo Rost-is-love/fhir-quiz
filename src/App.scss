@@ -52,15 +52,15 @@ html {
 
 .first {
   position: relative;
-  background: linear-gradient(to top, #000840 0%, #000 100%);
+  // background: linear-gradient(to top, #000840 0%, #000 100%);
 
   &__container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding-top: 30vh;
-    height: 100vh;
-    min-height: 600px;
+    // padding-top: 30vh;
+    // height: 100vh;
+    // min-height: 600px;
   }
 }
 

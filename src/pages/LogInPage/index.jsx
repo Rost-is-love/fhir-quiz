@@ -28,11 +28,6 @@ export default function LogInPage() {
           </div>
         </div>
       </div>
-      <div class="stars-bg">
-        <div id="stars"></div>
-        <div id="stars2"></div>
-        <div id="stars3"></div>
-      </div>
     </div>
   );
 }
