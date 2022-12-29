@@ -29,30 +29,40 @@ const submitResponse = async (
   );
 
   const options = document.getElementsByClassName("option-text");
-  console.log(options, "options");
+
   [...options].forEach((option) => {
     option.classList.remove("text-green-500", "text-red-500");
     option.classList.add("text-white");
   });
   const selectedOption = document.getElementById(selectedElement);
   selectedOption.classList.remove("text-white");
-  // console.log(selectedOption, "selectedOption");
+
   if (userResponse.trim().toLowerCase() === rightAnswer.trim().toLowerCase()) {
     selectedOption.classList.add("text-green-500");
   } else {
     selectedOption.classList.add("text-red-500");
   }
-  // console.log(questionResponse, "QuestionResponse");
 };
 
 const removeLike = async (likeId) => {
-  console.log(likeId, "likeIdlikeId");
   await axios.delete(`https://fhirquiz.edge.aidbox.app/Like/${likeId}`);
+};
+
+const getNextQuestion = (currentQuestion, allQuestions) => {
+  const currentQuestionIdx = allQuestions.findIndex(
+    (item) => item.id === currentQuestion.id
+  );
+
+  const nextQuestionInx =
+    currentQuestionIdx + 1 === allQuestions.length ? 0 : currentQuestionIdx + 1;
+
+  return allQuestions[nextQuestionInx].id;
 };
 
 export default function QuestionPage() {
   const currentUser = useStore(user);
   const [questionData, setQuestionData] = useState(null);
+  const [nextQuestion, setNextQuestion] = useState(null);
   const [userResponse, setUserResponse] = useState("");
   const [like, setLike] = useState(false);
   const [selectedElement, setSelectedElement] = useState("");
@@ -66,14 +76,24 @@ export default function QuestionPage() {
     setQuestionData(null);
 
     async function fetchData() {
-      const res = await axios.get(
+      const currentQuestion = await axios.get(
         `https://fhirquiz.edge.aidbox.app/$query/question-data?currentUserId=${currentUser.id}&questionId=${questionId}`
       );
 
-      setQuestionData(res.data?.data[0]?.resource);
-      if (res.data?.data[0]?.resource?.like?.id) {
+      setQuestionData(currentQuestion.data?.data[0]?.resource);
+      if (currentQuestion.data?.data[0]?.resource?.like?.id) {
         setLike(true);
       }
+
+      const allQuestions = await axios.get(
+        `https://fhirquiz.edge.aidbox.app/$query/questions`
+      );
+
+      const nextQeust = getNextQuestion(
+        currentQuestion.data?.data[0]?.resource,
+        allQuestions.data.data
+      );
+      setNextQuestion(nextQeust);
     }
 
     if (currentUser) {
@@ -125,7 +145,10 @@ export default function QuestionPage() {
         <div className="flex gap-4 flex-col mb-7">
           {questionData.options?.map(({ value }, i) => {
             return (
-              <div className="flex items-center mb-1 hover:cursor-pointer">
+              <div
+                className="flex items-center mb-1 hover:cursor-pointer"
+                key={i}
+              >
                 <input
                   id={`default-radio-${i + 1}`}
                   type="radio"
@@ -196,30 +219,32 @@ export default function QuestionPage() {
           </div>
         </div>
 
-        <div className="mt-20 rounded-xl bg-gradient-to-r from-yellow-400 to-pink-600 hover:from-pink-600 hover:to-yellow-400 hover:duration-500">
-          <a
-            href={`#/question/${Number(questionId) + 1}`}
-            className="p-3 flex items-center rounded-xl text-2xl font-medium justify-center w-full bg-transparent hover:text-white duration-500"
-          >
-            <svg
-              className="w-10 h-10 fill-current mr-5"
-              viewBox="0 0 16 16"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
+        {nextQuestion && (
+          <div className="mt-20 rounded-xl bg-gradient-to-r from-yellow-400 to-pink-600 hover:from-pink-600 hover:to-yellow-400 hover:duration-500">
+            <a
+              href={`#/question/${nextQuestion}`}
+              className="p-3 flex items-center rounded-xl text-2xl font-medium justify-center w-full bg-transparent hover:text-white duration-500"
             >
-              <g>
-                <path d="M8.245 4.695a.75.75 0 00-.05 1.06l1.36 1.495H4.75a.75.75 0 000 1.5h4.805l-1.36 1.495a.75.75 0 001.11 1.01l2.5-2.75a.75.75 0 000-1.01l-2.5-2.75a.75.75 0 00-1.06-.05z" />
+              <svg
+                className="w-10 h-10 fill-current mr-5"
+                viewBox="0 0 16 16"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+              >
+                <g>
+                  <path d="M8.245 4.695a.75.75 0 00-.05 1.06l1.36 1.495H4.75a.75.75 0 000 1.5h4.805l-1.36 1.495a.75.75 0 001.11 1.01l2.5-2.75a.75.75 0 000-1.01l-2.5-2.75a.75.75 0 00-1.06-.05z" />
 
-                <path
-                  fill-rule="evenodd"
-                  d="M0 8a8 8 0 1116 0A8 8 0 010 8zm8-6.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13z"
-                  clip-rule="evenodd"
-                />
-              </g>
-            </svg>
-            Next Question
-          </a>
-        </div>
+                  <path
+                    fill-rule="evenodd"
+                    d="M0 8a8 8 0 1116 0A8 8 0 010 8zm8-6.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13z"
+                    clip-rule="evenodd"
+                  />
+                </g>
+              </svg>
+              Next Question
+            </a>
+          </div>
+        )}
       </div>
     );
   } else {
