@@ -61,13 +61,13 @@ const removeLike = async (likeId) => {
 
 const getNextQuestion = (currentQuestion, allQuestions) => {
   const currentQuestionIdx = allQuestions.findIndex(
-    (item) => item.id === currentQuestion.id
+    (item) => item.q_id === currentQuestion.id
   );
 
   const nextQuestionInx =
     currentQuestionIdx + 1 === allQuestions.length ? 0 : currentQuestionIdx + 1;
 
-  return allQuestions[nextQuestionInx].id;
+  return allQuestions[nextQuestionInx].q_id;
 };
 
 export default function QuestionPage() {
@@ -80,8 +80,6 @@ export default function QuestionPage() {
   const params = useParams();
 
   const questionId = params.id;
-  console.log(like, "clickLike");
-  console.log(questionData, "questionDataquestionData");
 
   useEffect(() => {
     setQuestionData(null);
