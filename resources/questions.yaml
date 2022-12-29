@@ -132,3 +132,18 @@ PUT /
     tip: Determining the qualifications of a doctor by services is not the best idea :( He may be able to do something, but not perform at the moment. It's even worse if he performs something without the appropriate qualification!
   - value: Create another Practitioner with new qualifications. It will be convenient to collect statistics for different areas separately.
     tip: Not the best approach :( Duplicating a doctor in different database records will definitely lead to errors!
+
+- id: "10"
+  resourceType: Question
+  author:
+    id: b4e76b90-e2bf-43c3-b6dc-55d24901c4dc
+    resourceType: User
+  question: "We are opening a new clinic. Hooray! How should we begin? First, let's save our services. Where will we record it?"
+  answer: "ActivityDefinition. A fairly common name. But it makes sense."
+  options:
+  - value: Well, everything is clear here. Doctors carry out procedures. This is the Procedure resource.
+    tip: Actually no :( We use the Procedure resource to describe a specific doctor's procedure at an appointment, i.e. a specific medical manipulation. This is not suitable for a registry of services.
+  - value: HealthcareService. The name explicitly describes the entity.
+    tip: You're not alone! Even some production systems fell for it. But let's read the description of the resource carefully. The resource is better suited for service categories. It will come in handy when we group resources.
+  - value: ActivityDefinition. A fairly common name. But it makes sense.
+    tip: Exactly! The perfect resource for our task! And it will be grouped using HealthcareService.
