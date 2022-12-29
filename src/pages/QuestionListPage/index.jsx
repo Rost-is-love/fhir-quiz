@@ -31,24 +31,24 @@ export default function QuestionListPage() {
           <div className="grid">
             {questionsfull.map((q, idx) => {
               return (
-                <a key={idx} href={"#/question/" + q.resource_data.question.id}>
-                  <div className="question" title={q.resource_data.question.resource.question}>
-                    <span className="name text-transparent bg-white bg-clip-text hover:bg-gradient-to-r hover:from-yellow-400 hover:to-pink-600">
+                <div key={idx} className="question" title={q.resource_data.question.resource.question}>
+                  <a className="name text-transparent bg-white bg-clip-text hover:bg-gradient-to-r hover:from-yellow-400 hover:to-pink-600" href={"#/question/" + q.resource_data.question.id}>
+                    <span>
                       {q.resource_data.question.resource.question.length > 50
                        ? q.resource_data.question.resource.question.substring(0, 50) + "..."
                        : q.resource_data.question.resource.question}
                     </span>
-                    <span className="italic mr-5" style={{"min-width": "200px"}}>by {q.resource_data.user.resource.name.formatted} </span>
-                    <div className="flex items-center">
-                      <div className="text-center"> {q.likecount} votes</div>
-                    </div>
+                  </a>
+                  <span className="author italic mr-5">by {q.resource_data.user.resource.name.formatted} </span>
+                  <div className="flex items-center">
+                    <div className="text-center"> {q.likecount} votes</div>
                   </div>
-                </a>
+                </div>
               );
             })}
+            </div>
           </div>
         </div>
-      </div>
     </div>
   );
 }

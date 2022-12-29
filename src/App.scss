@@ -62,7 +62,9 @@
   font-size: 20px;
   color: white;
 }
-
+.question-list .question .author {
+  min-width: 200px;
+}
 .question-list .question .counter {
   width: 30px;
   text-align: center;
