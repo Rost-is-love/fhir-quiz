@@ -34,11 +34,11 @@ export default function LogInPage({children}) {
 
             </div>
 
-            <div className="root text-white grow">
+            <div className="main_content root text-white grow">
                 {children}
             </div>
 
-            <div className="root flex shrink-0 basis-auto justify-between items-end pt-20 pb-4 z-100">
+            <div className="footer root flex shrink-0 basis-auto justify-between items-end pt-20 pb-4 z-100">
                 <div>
                     <Link text="Suggest question" href="#/suggest" />
                     <br />

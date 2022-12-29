@@ -49,6 +49,9 @@
   min-height: 100vh;
   text-align: left;
 }
+.main_content {
+  min-height: calc(100vh - 160px - 60px - 1rem - 3rem);
+}
 .question-list .question {
   margin-bottom: 20px;
   display: flex;
