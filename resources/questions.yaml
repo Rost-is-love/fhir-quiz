@@ -1,6 +1,6 @@
 PUT /
 
-- id: question-1
+- id: "1"
   resourceType: Question
   author:
     id: b4e76b90-e2bf-43c3-b6dc-55d24901c4dc
@@ -16,7 +16,7 @@ PUT /
     tip: Oops, you can find it in PractitinerRole only!
   - value: Telecom
 
-- id: question-2
+- id: "2"
   resourceType: Question
   author:
     id: b4e76b90-e2bf-43c3-b6dc-55d24901c4dc
@@ -29,7 +29,7 @@ PUT /
   - value: remission
   - value: "recurrence (or relapse, or active)"
 
-- id: question-3
+- id: "3"
   resourceType: Question
   author:
     id: b4e76b90-e2bf-43c3-b6dc-55d24901c4dc
@@ -38,7 +38,7 @@ PUT /
   answer: Slot
   explanation: Slot resources are used to provide time-slots that can be booked using an appointment. They do not provide any information about appointments that are available, just the time, and optionally what the time can be used for. These are effectively spaces of free/busy time.
 
-- id: question-4
+- id: "4"
   resourceType: Question
   author:
     id: b4e76b90-e2bf-43c3-b6dc-55d24901c4dc
@@ -53,7 +53,7 @@ PUT /
     tip: "ServiceRequest and CommunicationRequest are related. A CommunicationRequest is a request to merely disclose information. Whereas a ServiceRequest would be used to request information as part of training or counseling - i.e. when the process will involve verification of the patient's comprehension or an attempt to change the patient's mental state. In some workflows both may exist. For example, upon receiving a CommunicationRequest a practitioner might initiate a ServiceRequest."
 
 
-- id: question-5
+- id: "5"
   resourceType: Question
   author:
     id: b4e76b90-e2bf-43c3-b6dc-55d24901c4dc
@@ -68,7 +68,7 @@ PUT /
   - value: Resolved
 
 
-- id: question-6
+- id: "6"
   resourceType: Question
   author:
     id: b4e76b90-e2bf-43c3-b6dc-55d24901c4dc
@@ -89,7 +89,7 @@ PUT /
   - value: Subscription 
     tip: The subscription resource is used to define a push-based subscription from a server to another system. Once a subscription is registered with the server, the server checks every resource that is created or updated, and if the resource matches the given criteria, it sends a message on the defined "channel" so that another system can take an appropriate action.
 
-- id: question-7
+- id: "7"
   resourceType: Question
   author:
     id: "0fcdbfab-94d2-41bb-b027-ef0486200d1e"
@@ -104,7 +104,7 @@ PUT /
   - value: PractitionerRole
     tip: Mostly used to discribe certain role of the Practitioner in separate organization
 
-- id: question-8
+- id: "8"
   resourceType: Question
   author:
     id: "0fcdbfab-94d2-41bb-b027-ef0486200d1e"
@@ -117,3 +117,18 @@ PUT /
   - value: PaymentNotice
   - value: ClaimResponse
   - value: ChargeItem
+
+- id: "9"
+  resourceType: Question
+  author:
+    id: "b4e76b90-e2bf-43c3-b6dc-55d24901c4dc"
+    resourceType: User
+  question: The doctor received an additional specialty and is ready to see new patients. What is the best way to model this?
+  answer: Use PractinerRole. One doctor can be in several roles. So he can fulfill his role in different departments of the clinic without conflicts
+  options:
+  - value: Use PractinerRole. One doctor can be in several roles. So he can fulfill his role in different departments of the clinic without conflicts.
+    tip: Great choice! This is the most correct approach.
+  - value: Record new services in HealthcareService. The doctor will perform various services and it is convenient to collect reports on him!
+    tip: Determining the qualifications of a doctor by services is not the best idea :( He may be able to do something, but not perform at the moment. It's even worse if he performs something without the appropriate qualification!
+  - value: Create another Practitioner with new qualifications. It will be convenient to collect statistics for different areas separately.
+    tip: Not the best approach :( Duplicating a doctor in different database records will definitely lead to errors!
