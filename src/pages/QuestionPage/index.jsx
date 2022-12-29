@@ -357,7 +357,7 @@ export default function QuestionPage() {
             <a href="/" className="underline text-cyan-500">
               LogIn
             </a>{" "}
-            to see the question
+            to save your progress
           </>
         )}
       </div>
