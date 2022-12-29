@@ -1,4 +1,7 @@
 import "../../App.scss";
+import { user } from "../../store/user";
+import { useStore } from "@nanostores/react";
+import axios from "axios";
 
 function Link({text, href}) {
     return (
@@ -7,31 +10,56 @@ function Link({text, href}) {
 }
 
 function logout() {
-    console.log("logout");
+    axios.delete(`https://fhirquiz.edge.aidbox.app/Session`)
+        .then((res) => {
+            console.log(res.data.entry);
+            window.location.reload();
+        });
+}
+
+function Userinfo({user}) {
+    if (user) {
+        return (
+            <div className="flex items-center gap-2">
+                <div className="text-transparent bg-white bg-clip-text hover:bg-gradient-to-r hover:from-yellow-400 hover:to-pink-600 cursor-default">
+                    {user?.name?.formatted || user?.userName}
+                </div>
+
+                <div>
+                    <img className="rounded-full w-10" src={user?.photo} />
+                </div>
+
+                <div className="cursor-pointer transition-all duration-1000 text-transparent bg-white bg-clip-text hover:bg-gradient-to-r hover:from-yellow-400 hover:to-pink-600" onClick={(e) => logout()} >→</div>
+            </div>
+        );
+    } else {
+        return (
+            <div>
+                <a className="text-transparent bg-white bg-clip-text hover:bg-gradient-to-r hover:from-yellow-400 hover:to-pink-600" href="https://fhirquiz.edge.aidbox.app/auth/redirect/github"> Sign in</a>
+            </div>
+
+        );
+    }
 }
 
 export default function LogInPage({children}) {
+    const currentUser = useStore(user);
+
     return (
         <div className="">
-            <div className="mt-4 mb-12 mx-4 flex justify-between text-white">
+            <div className="mt-4 mb-12 mx-8 flex justify-between text-white">
 
                 <div className="tracking-wide text-3xl cursor-pointer underline leading-loose font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600 transition-all duration-1000 hover:from-pink-600 hover:to-yellow-400">
-                    <a href="#/"> FHIR quiz</a>
+                    <a href="#/">FHIR quiz</a>
                 </div>
 
                 <div className="flex items-center gap-4">
                     <Link text="Where is quiz?" href="#/where-is-quiz" />
                     <Link text="Questions" href="#/questions" />
 
-                    vganshin
-                    <div>
-                        <img className="rounded-full w-10" src="https://avatars.githubusercontent.com/u/1931520?v=4" />
-                    </div>
-
-                    <div className="cursor-pointer" onClick={(e) => logout()} >→</div>
+                    <Userinfo user={user.value} />
 
                 </div>
-
             </div>
 
             <div className="main_content root text-white grow">
@@ -57,7 +85,6 @@ export default function LogInPage({children}) {
                     GitHub</a>
                 </div>
             </div>
-
 
         </div>
     );
