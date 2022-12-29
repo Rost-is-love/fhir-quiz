@@ -74,7 +74,7 @@ export default function QuestionPage() {
 
   useEffect(() => {
     setQuestionData(null);
-
+    setLike(false);
     async function fetchData() {
       const currentQuestion = await axios.get(
         `https://fhirquiz.edge.aidbox.app/$query/question-data?currentUserId=${currentUser.id}&questionId=${questionId}`
