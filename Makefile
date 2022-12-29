@@ -1,4 +1,5 @@
 deploy:
+	npm install
 	npm run build
 	mkdir -p target
 	cp build/static/css/main.*.css target/main.css

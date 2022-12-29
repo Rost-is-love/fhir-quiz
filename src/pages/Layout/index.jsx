@@ -2,7 +2,7 @@ import "../../App.scss";
 
 function Link({text, href}) {
     return (
-        <a href={href} className="cursor-pointer underline leading-loose font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600 transition-all duration-1000 hover:from-pink-600 hover:to-yellow-400">{text}</a>
+        <a href={href} className="tracking-wide cursor-pointer underline leading-loose font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600 transition-all duration-1000 hover:from-pink-600 hover:to-yellow-400">{text}</a>
     );
 }
 
@@ -15,7 +15,7 @@ export default function LogInPage({children}) {
         <div className="">
             <div className="mt-4 mb-12 mx-4 flex justify-between text-white">
 
-                <div className="text-3xl cursor-pointer underline leading-loose font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600 transition-all duration-1000 hover:from-pink-600 hover:to-yellow-400">
+                <div className="tracking-wide text-3xl cursor-pointer underline leading-loose font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600 transition-all duration-1000 hover:from-pink-600 hover:to-yellow-400">
                     <a href="#/"> FHIR quiz</a>
                 </div>
 
@@ -34,7 +34,7 @@ export default function LogInPage({children}) {
 
             </div>
 
-            <div className="root text-white text-center grow">
+            <div className="root text-white grow">
                 {children}
             </div>
 
@@ -45,7 +45,7 @@ export default function LogInPage({children}) {
                     <Link text="Authors" href="#/authors" />
                 </div>
                 <div className="text-white">
-                    Developed at <a className="underline" href="https://health-samurai.io" target="_blank">HealthSamurai</a>. Powered by <a className="underline" href="https://aidbox.app" target="_blank">aidbox.app</a>.
+                    Developed at <a className="underline" href="https://health-samurai.io" target="_blank">Health Samurai</a>. Powered by <a className="underline" href="https://aidbox.app" target="_blank">aidbox.app</a>.
                     <br />
 
                     <a className="underline flex items-center cursor-pointer" href="https://github.com/Rost-is-love/fhir-quiz" target="_blank">
