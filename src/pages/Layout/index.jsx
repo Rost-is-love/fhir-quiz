@@ -54,8 +54,9 @@ export default function LogInPage({children}) {
                 </div>
 
                 <div className="flex items-center gap-4">
-                    <Link text="Where is quiz?" href="#/where-is-quiz" />
                     <Link text="Questions" href="#/questions" />
+                    <Link text="Suggest question" href="#/suggest" />
+
 
                     <Userinfo user={user.value} />
 
@@ -68,9 +69,9 @@ export default function LogInPage({children}) {
 
             <div className="footer show_on_top root flex shrink-0 basis-auto justify-between items-end pt-20 pb-4 z-100">
                 <div>
-                    <Link text="Suggest question" href="#/suggest" />
+                    <Link text="Where is the quiz?" href="#/where-is-quiz" />
                     <br />
-                    <Link text="Authors" href="#/about" />
+                    <Link text="About" href="#/about" />
                 </div>
                 <div className="text-white">
                     Developed at <a className="underline" href="https://health-samurai.io" target="_blank">Health Samurai</a>. Powered by <a className="underline" href="https://aidbox.app" target="_blank">aidbox.app</a>.

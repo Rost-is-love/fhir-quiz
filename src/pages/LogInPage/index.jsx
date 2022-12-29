@@ -10,12 +10,12 @@ export default function LogInPage() {
   return (
     <div className="first">
       <div className="first__container">
-        <div className="w-full p-6 lg:max-w-md z-50">
+        <div className="w-full p-6  z-50">
           <h1 className="tracking-wider text-7xl mb-7 font-semibold text-center text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600">
             FHIR quiz
           </h1>
           <p className="text-center mb-7 text-xl text-white">
-            Quiz and FHIR modeling knowledge base!
+            Quiz and FHIR modeling knowledge base.
           </p>
           <div className="flex mt-4 p-1 gap-x-2 rounded-xl bg-gradient-to-r from-yellow-400 to-pink-600 hover:from-pink-600 hover:to-yellow-400 hover:duration-500">
             {user?.value?.id ? (
