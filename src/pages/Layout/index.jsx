@@ -20,8 +20,10 @@ function logout() {
 function Userinfo({user}) {
     if (user) {
         return (
-            <div>
-                {user?.name?.formatted || user?.userName}
+            <div className="flex items-center gap-2">
+                <div className="text-transparent bg-white bg-clip-text hover:bg-gradient-to-r hover:from-yellow-400 hover:to-pink-600 cursor-default">
+                    {user?.name?.formatted || user?.userName}
+                </div>
 
                 <div>
                     <img className="rounded-full w-10" src={user?.photo} />
@@ -33,7 +35,7 @@ function Userinfo({user}) {
     } else {
         return (
             <div>
-                <a className="transition-all duration-1000 text-transparent bg-white bg-clip-text hover:bg-gradient-to-r hover:from-yellow-400 hover:to-pink-600" href="https://fhirquiz.edge.aidbox.app/auth/redirect/github"> Sign in</a>
+                <a className="text-transparent bg-white bg-clip-text hover:bg-gradient-to-r hover:from-yellow-400 hover:to-pink-600" href="https://fhirquiz.edge.aidbox.app/auth/redirect/github"> Sign in</a>
             </div>
 
         );
@@ -83,7 +85,6 @@ export default function LogInPage({children}) {
                     GitHub</a>
                 </div>
             </div>
-
 
         </div>
     );
