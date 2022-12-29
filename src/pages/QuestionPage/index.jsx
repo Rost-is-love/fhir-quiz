@@ -191,7 +191,7 @@ export default function QuestionPage() {
           })}
         </div>
 
-        <div className="flex justify-between mb-10">
+        <div className="flex justify-between pb-10">
           <button
             className="px-6 mr-7 flex items-center rounded-xl text-2xl font-medium justify-center bg-gradient-to-r from-yellow-400 to-pink-600 hover:from-pink-600 hover:to-yellow-400 hover:duration-500"
             onClick={() =>
@@ -239,34 +239,36 @@ export default function QuestionPage() {
           </div>
         </div>
         <div className="tip-place" style={{ display: "none" }}>
-          <h3>Tip:</h3>
+          <h3 className="text-lg font-semibold mb-2">Tip:</h3>
           <p className="tip-text"></p>
         </div>
 
         {nextQuestion && (
-          <div className="mt-10 rounded-xl bg-gradient-to-r from-yellow-400 to-pink-600 hover:from-pink-600 hover:to-yellow-400 hover:duration-500">
-            <a
-              href={`#/question/${nextQuestion}`}
-              className="p-3 flex items-center rounded-xl text-2xl font-medium justify-center w-full bg-transparent hover:text-white duration-500"
-            >
-              <svg
-                className="w-10 h-10 fill-current mr-5"
-                viewBox="0 0 16 16"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
+          <div className="pt-10">
+            <div className="rounded-xl bg-gradient-to-r from-yellow-400 to-pink-600 hover:from-pink-600 hover:to-yellow-400 hover:duration-500">
+              <a
+                href={`#/question/${nextQuestion}`}
+                className="p-3 flex items-center rounded-xl text-2xl font-medium justify-center w-full bg-transparent hover:text-white duration-500"
               >
-                <g>
-                  <path d="M8.245 4.695a.75.75 0 00-.05 1.06l1.36 1.495H4.75a.75.75 0 000 1.5h4.805l-1.36 1.495a.75.75 0 001.11 1.01l2.5-2.75a.75.75 0 000-1.01l-2.5-2.75a.75.75 0 00-1.06-.05z" />
+                <svg
+                  className="w-10 h-10 fill-current mr-5"
+                  viewBox="0 0 16 16"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                >
+                  <g>
+                    <path d="M8.245 4.695a.75.75 0 00-.05 1.06l1.36 1.495H4.75a.75.75 0 000 1.5h4.805l-1.36 1.495a.75.75 0 001.11 1.01l2.5-2.75a.75.75 0 000-1.01l-2.5-2.75a.75.75 0 00-1.06-.05z" />
 
-                  <path
-                    fill-rule="evenodd"
-                    d="M0 8a8 8 0 1116 0A8 8 0 010 8zm8-6.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13z"
-                    clip-rule="evenodd"
-                  />
-                </g>
-              </svg>
-              Next Question
-            </a>
+                    <path
+                      fill-rule="evenodd"
+                      d="M0 8a8 8 0 1116 0A8 8 0 010 8zm8-6.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13z"
+                      clip-rule="evenodd"
+                    />
+                  </g>
+                </svg>
+                Next Question
+              </a>
+            </div>
           </div>
         )}
       </div>
