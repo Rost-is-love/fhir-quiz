@@ -63,9 +63,7 @@ export default function QuestionPage() {
   console.log(questionData, "questionDataquestionData");
 
   useEffect(() => {
-
     setQuestionData(null);
-
 
     async function fetchData() {
       const res = await axios.get(
@@ -81,7 +79,6 @@ export default function QuestionPage() {
     if (currentUser) {
       fetchData();
     }
-
   }, [questionId, currentUser]);
 
   const addLike = async () => {
@@ -111,7 +108,6 @@ export default function QuestionPage() {
 
   if (questionData) {
     return (
-
       <div className="w-full z-50">
         <h1 className="tracking-wide text-5xl mt-7 mb-7 leading-normal font-semibold ">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600">
@@ -127,36 +123,35 @@ export default function QuestionPage() {
         </p>
 
         <div className="flex gap-4 flex-col mb-7">
-                {questionData.options?.map(({ value }, i) => {
-                  return (
-                    <div className="flex items-center mb-1 hover:cursor-pointer">
-                      <input
-                        id={`default-radio-${i + 1}`}
-                        type="radio"
-                        value=""
-                        name="default-radio"
-                        className="w-4 h-4 accent-pink-500"
-                        onClick={() => {
-                          setUserResponse(value);
-                          setSelectedElement(`label-radio-${i + 1}`);
-                        }}
-                      ></input>
-                      <label
-                        id={`label-radio-${i + 1}`}
-                        for={`default-radio-${i + 1}`}
-                        className="option-text ml-2 text-l text-left font-medium text-white"
-                      >
-                        {value}
-                      </label>
-                    </div>
-                  );
-                })}
+          {questionData.options?.map(({ value }, i) => {
+            return (
+              <div className="flex items-center mb-1 hover:cursor-pointer">
+                <input
+                  id={`default-radio-${i + 1}`}
+                  type="radio"
+                  value=""
+                  name="default-radio"
+                  className="w-4 h-4 accent-pink-500"
+                  onClick={() => {
+                    setUserResponse(value);
+                    setSelectedElement(`label-radio-${i + 1}`);
+                  }}
+                ></input>
+                <label
+                  id={`label-radio-${i + 1}`}
+                  for={`default-radio-${i + 1}`}
+                  className="option-text ml-2 text-l text-left font-medium text-white"
+                >
+                  {value}
+                </label>
               </div>
-
+            );
+          })}
+        </div>
 
         <div className="flex justify-between">
           <button
-            className="px-6 mr-7 flex items-center rounded-xl text-2xl font-medium justify-center bg-gradient-to-r from-yellow-400 to-pink-600 hover:text-white duration-500"
+            className="px-6 mr-7 flex items-center rounded-xl text-2xl font-medium justify-center bg-gradient-to-r from-yellow-400 to-pink-600 hover:from-pink-600 hover:to-yellow-400 hover:duration-500"
             onClick={() =>
               submitResponse(
                 userResponse,
@@ -165,7 +160,8 @@ export default function QuestionPage() {
                 currentUser.id,
                 selectedElement
               )
-            }>
+            }
+          >
             Submit
           </button>
           <div
@@ -200,15 +196,17 @@ export default function QuestionPage() {
           </div>
         </div>
 
-        <div className="mt-20 rounded-xl bg-gradient-to-r from-yellow-400 to-pink-600">
+        <div className="mt-20 rounded-xl bg-gradient-to-r from-yellow-400 to-pink-600 hover:from-pink-600 hover:to-yellow-400 hover:duration-500">
           <a
             href={`#/question/${Number(questionId) + 1}`}
-            className="p-3 flex items-center rounded-xl text-2xl font-medium justify-center w-full bg-transparent hover:text-white duration-500">
+            className="p-3 flex items-center rounded-xl text-2xl font-medium justify-center w-full bg-transparent hover:text-white duration-500"
+          >
             <svg
               className="w-10 h-10 fill-current mr-5"
               viewBox="0 0 16 16"
               xmlns="http://www.w3.org/2000/svg"
-              fill="none">
+              fill="none"
+            >
               <g>
                 <path d="M8.245 4.695a.75.75 0 00-.05 1.06l1.36 1.495H4.75a.75.75 0 000 1.5h4.805l-1.36 1.495a.75.75 0 001.11 1.01l2.5-2.75a.75.75 0 000-1.01l-2.5-2.75a.75.75 0 00-1.06-.05z" />
 
@@ -222,16 +220,10 @@ export default function QuestionPage() {
             Next Question
           </a>
         </div>
-
-
-
       </div>
-
-
     );
   } else {
     return (
-
       <div className="w-full z-50">
         <h1 className=" tracking-wide text-5xl mt-7 mb-7 leading-normal font-semibold ">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600">
@@ -240,8 +232,6 @@ export default function QuestionPage() {
         </h1>
         Loading...
       </div>
-
     );
   }
-
 }
