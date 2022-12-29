@@ -82,22 +82,36 @@ export default function QuestionPage() {
   // currentUser.id
   useEffect(() => {
     async function fetchData() {
+
+
+      if (Object.keys(question).length == 0) {
       const questionData = await axios.get(
         `https://fhirquiz.edge.aidbox.app/Question/${questionId}`
       );
       setQuestion(questionData.data);
+      };
+
+      if (Object.keys(author).length == 0) {
       const authorData = await axios.get(
         `https://fhirquiz.edge.aidbox.app/User/${question.author.id}`
       );
       setAuthor(authorData.data);
+      };
+
+      if (userResponse.length == 0) {
       const responseData = await axios.get(
         `https://fhirquiz.edge.aidbox.app/QuestionResponse?.user.id=${currentUser.id}&.question.id=${question.id}&_sort=createdAt`
       );
       setUserResponse(responseData.data[0].response);
+      };
+
+      if (Object.keys(like).length == 0) {
       const likeData = await axios.get(
         `https://fhirquiz.edge.aidbox.app/Like?.user.id=${currentUser.id}&.question.id=${question.id}`
       );
       setLike(likeData.data);
+      };
+
     }
     fetchData();
   });
