@@ -1,6 +1,10 @@
 # FHIR quiz
 
-https://fhirquiz.edge.aidbox.app/auth/redirect/github
+https://fhirquiz.edge.aidbox.app/
+
+
+
+# For Deploy
 
 ```yaml
 
