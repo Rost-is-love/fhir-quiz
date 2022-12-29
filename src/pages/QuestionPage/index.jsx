@@ -102,7 +102,7 @@ export default function QuestionPage() {
   }, [questionId, currentUser]);
 
   const addLike = async () => {
-    const res = await axios.post(`https://fhirquiz.edge.aidbox.app/Like`, {
+    const res = await axios.put(`https://fhirquiz.edge.aidbox.app/Like/${questionData.id}_${currentUser.id}`, {
       user: {
         resourceType: "User",
         id: currentUser.id,
