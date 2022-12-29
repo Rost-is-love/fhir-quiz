@@ -29,19 +29,21 @@ export default function QuestionSuggestionPage() {
       <div>
         <h1 className=" tracking-wide text-5xl mt-7 mb-7 leading-normal font-semibold ">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600">
-            Suggest question
+            Where is the quiz?
           </span>
         </h1>
 
         <div className="leading-6 text-white tracking-wide mb-7">
-          Thank you for your contribution.
+          Thank you for submitting the form. We will review it and put you in the waiting list or get back to you.
         </div>
 
-        <span className="cursor-pointer text-transparent bg-white bg-clip-text hover:bg-gradient-to-r hover:from-yellow-400 hover:to-pink-600"
-              onClick={() => {setSuggested(false); setSuggestion(null)}}>
-          One more suggestion →
+        <span>
+          In the meantime you can study FHIR with{" "}
+          <a className="cursor-pointer text-transparent bg-white bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600" href="#/questions">
+            public questions
+          </a>
+          .
         </span>
-
       </div>
     );
   } else {
