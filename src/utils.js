@@ -4,13 +4,8 @@ import { addUser } from "./store/user";
 export const hasUser = async () => {
   try {
     const user = await axios.get(
-      "https://fhirquiz.edge.aidbox.app/auth/userinfo",
-      {
-        headers: {
-          authorization:
-            "Bearer ZmZlMTQyZDAtYzFlNi00N2QyLTlhMGItM2JjNzk1MTk3YWJm",
-        },
-      }
+      "https://fhirquiz.edge.aidbox.app/auth/userinfo"
+      //, {headers: {authorization: "Bearer ZmZlMTQyZDAtYzFlNi00N2QyLTlhMGItM2JjNzk1MTk3YWJm",},}
     );
     console.log(user.data, "user.data");
     addUser(user.data);
