@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useStore } from "@nanostores/react";
 import classNames from "classnames";
 import axios from "axios";
 import "../../App.scss";
+import { user } from "../../store/user";
 
 const submitResponse = async (
   userResponse,
@@ -61,37 +63,37 @@ const addLike = async (userId, questionId) => {
 };
 
 export default function QuestionPage() {
+  const currentUser = useStore(user);
   const [question, setQuestion] = useState({});
   const [author, setAuthor] = useState({});
-  const [currentUser, setCurrentUser] = useState({});
   const [userResponse, setUserResponse] = useState("");
   const [selectedElement, setSelectedElement] = useState("");
   const [like, setLike] = useState({});
   const params = useParams();
   const questionId = params.id;
 
+  // Question
+  // QuestionResponse
+  // User as author
+  // Like
+
+  // params
+  // questionId
+  // currentUser.id
   useEffect(() => {
     async function fetchData() {
       const questionData = await axios.get(
         `https://fhirquiz.edge.aidbox.app/Question/${questionId}`
       );
       setQuestion(questionData.data);
-
       const authorData = await axios.get(
         `https://fhirquiz.edge.aidbox.app/User/${question.author.id}`
       );
       setAuthor(authorData.data);
-
-      const currentUserData = await axios.get(
-        "https://fhirquiz.edge.aidbox.app/auth/userinfo"
-      );
-      setCurrentUser(currentUserData.data);
-
       const responseData = await axios.get(
         `https://fhirquiz.edge.aidbox.app/QuestionResponse?.user.id=${currentUser.id}&.question.id=${question.id}&_sort=createdAt`
       );
       setUserResponse(responseData.data[0].response);
-
       const likeData = await axios.get(
         `https://fhirquiz.edge.aidbox.app/Like?.user.id=${currentUser.id}&.question.id=${question.id}`
       );
