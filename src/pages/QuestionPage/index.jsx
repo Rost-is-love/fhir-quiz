@@ -123,6 +123,9 @@ export default function QuestionPage() {
     "ext-pink-600": like.question,
   });
 
+  if (Object.keys(question).length == 0)
+  {return (<div></div>);}
+  else {
   return (
     <div className="first">
       <div className="first__container question-container">
@@ -237,5 +240,5 @@ export default function QuestionPage() {
         </section>
       </div>
     </div>
-  );
+  );}
 }
