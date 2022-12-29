@@ -5,14 +5,13 @@ import axios from "axios";
 export default function QuestionListPage() {
   const [questionsfull, setQuestion] = useState([]);
   useEffect(() => {
-    console.log("Page opened; Json fetch here")
-    if (questionsfull.length == 0)
-    {axios.get(`https://fhirquiz.edge.aidbox.app/Question`)
-     .then(res => {
-       setQuestion(res.data.entry);
-       console.log(typeof(questionsfull));
-       console.log(questionsfull);
-     })
+    console.log("Page opened; Json fetch here");
+    if (questionsfull.length == 0) {
+      axios.get(`https://fhirquiz.edge.aidbox.app/Question`).then((res) => {
+        setQuestion(res.data.entry);
+        console.log(typeof questionsfull);
+        console.log(questionsfull);
+      });
     }
   });
 
@@ -28,25 +27,31 @@ export default function QuestionListPage() {
 
       <div>
         <div className="centered content">
-
           <div className="grid">
-            {questionsfull.map((q, idx)=>{
-              return (<a href={"question/" + q.resource.id}>
-                        <div className="question" key={idx} title={q.resource.question}>
-                          <div>
-                            <div className="arrow-up bg-gradient-to-r from-yellow-400 to-pink-600"> </div>
-                            <div className="text-center"> {idx} </div>
-                            <div className="arrow-down"> </div>
-                          </div>
-                          <span className="name ml-5">
-                            {(q.resource.question.length > 50) ?
-                             q.resource.question.substring(0, 50) + "..." :
-                             q.resource.question}
-                          </span>
-                          <span className="italic mr-5"> by the best Author </span>
-
-                        </div>
-                      </a>)
+            {questionsfull.map((q, idx) => {
+              return (
+                <a href={"#/question/" + q.resource.id}>
+                  <div
+                    className="question"
+                    key={idx}
+                    title={q.resource.question}
+                  >
+                    <div>
+                      <div className="arrow-up bg-gradient-to-r from-yellow-400 to-pink-600">
+                        {" "}
+                      </div>
+                      <div className="text-center"> {idx} </div>
+                      <div className="arrow-down"> </div>
+                    </div>
+                    <span className="name ml-5">
+                      {q.resource.question.length > 50
+                        ? q.resource.question.substring(0, 50) + "..."
+                        : q.resource.question}
+                    </span>
+                    <span className="italic mr-5"> by the best Author </span>
+                  </div>
+                </a>
+              );
             })}
           </div>
         </div>

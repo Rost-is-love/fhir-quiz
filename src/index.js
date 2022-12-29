@@ -22,7 +22,7 @@ const router = createHashRouter([
     element: <QuestionListPage />,
   },
   {
-    path: "/questions/:id",
+    path: "/question/:id",
     element: <QuestionPage />,
   },
   {

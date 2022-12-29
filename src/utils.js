@@ -21,4 +21,9 @@ export const main = async () => {
     window.location.href =
       "https://fhirquiz.edge.aidbox.app/Static/index.html/$show";
   }
+
+  if (isUserLoggedIn && hash.length === 0) {
+    window.location.href =
+      "https://fhirquiz.edge.aidbox.app/Static/index.html/$show/#/mode";
+  }
 };
