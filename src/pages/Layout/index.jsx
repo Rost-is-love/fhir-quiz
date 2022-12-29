@@ -47,7 +47,7 @@ export default function LogInPage({children}) {
 
     return (
         <div className="">
-            <div className="mt-4 mb-12 mx-8 flex justify-between text-white">
+            <div className="mt-4 mb-12 mx-8 flex justify-between text-white show_on_top">
 
                 <div className="tracking-wide text-3xl cursor-pointer underline leading-loose font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600 transition-all duration-1000 hover:from-pink-600 hover:to-yellow-400">
                     <a href="#/">FHIR quiz</a>
@@ -66,7 +66,7 @@ export default function LogInPage({children}) {
                 {children}
             </div>
 
-            <div className="footer root flex shrink-0 basis-auto justify-between items-end pt-20 pb-4 z-100">
+            <div className="footer show_on_top root flex shrink-0 basis-auto justify-between items-end pt-20 pb-4 z-100">
                 <div>
                     <Link text="Suggest question" href="#/suggest" />
                     <br />

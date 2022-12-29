@@ -52,6 +52,10 @@
 .main_content {
   min-height: calc(100vh - 160px - 60px - 1rem - 3rem);
 }
+.show_on_top {
+  position: relative;
+  z-index: 100;
+}
 .question-list .question {
   margin-bottom: 20px;
   display: flex;
