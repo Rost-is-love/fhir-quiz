@@ -37,21 +37,21 @@ const submitResponse = async (
   const selectedOption = document.getElementById(selectedElement);
   selectedOption.classList.remove("text-white");
 
-  if (userResponse.trim().toLowerCase() === rightAnswer.trim().toLowerCase()) {
+  const neededValueAndTip = questionData.options.find(
+    (valueAndTip) => valueAndTip.value.trim() === userResponse.trim()
+  );
+  const { tip } = neededValueAndTip;
+  if (tip) {
+    document.querySelector(".tip-text").innerHTML = tip;
     document.querySelector(".tip-place").style.display = "block";
+  } else {
+    document.querySelector(".tip-place").style.display = "none";
+  }
+
+  if (userResponse.trim().toLowerCase() === rightAnswer.trim().toLowerCase()) {
     selectedOption.classList.add("text-green-500");
   } else {
     selectedOption.classList.add("text-red-500");
-    const neededValueAndTip = questionData.options.find(
-      (valueAndTip) => valueAndTip.value.trim() === userResponse.trim()
-    );
-    const { tip } = neededValueAndTip;
-    if (tip) {
-      document.querySelector(".tip-text").innerHTML = tip;
-      document.querySelector(".tip-place").style.display = "block";
-    } else {
-      document.querySelector(".tip-place").style.display = "none";
-    }
   }
 };
 
@@ -113,16 +113,19 @@ export default function QuestionPage() {
   }, [questionId, currentUser]);
 
   const addLike = async () => {
-    const res = await axios.put(`https://fhirquiz.edge.aidbox.app/Like/${questionData.id}_${currentUser.id}`, {
-      user: {
-        resourceType: "User",
-        id: currentUser.id,
-      },
-      question: {
-        resourceType: "Question",
-        id: questionData.id,
-      },
-    });
+    const res = await axios.put(
+      `https://fhirquiz.edge.aidbox.app/Like/${questionData.id}_${currentUser.id}`,
+      {
+        user: {
+          resourceType: "User",
+          id: currentUser.id,
+        },
+        question: {
+          resourceType: "Question",
+          id: questionData.id,
+        },
+      }
+    );
 
     const likeId = res.data.id;
     const newState = { ...questionData, like: { id: likeId } };
@@ -308,7 +311,7 @@ export default function QuestionPage() {
           )}
         </div>
         <div className="tip-place" style={{ display: "none" }}>
-          <h3>Tip:</h3>
+          <h3 className="font-semibold text-xl">Tip:</h3>
           <p className="tip-text"></p>
         </div>
 
