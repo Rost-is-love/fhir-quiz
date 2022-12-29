@@ -283,7 +283,17 @@ export default function QuestionPage() {
             Question #{questionId}
           </span>
         </h1>
-        Loading...
+        {currentUser ? (
+          "Loading..."
+        ) : (
+          <>
+            Please{" "}
+            <a href="/" className="underline text-cyan-500">
+              LogIn
+            </a>{" "}
+            to see the question
+          </>
+        )}
       </div>
     );
   }
