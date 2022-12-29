@@ -6,20 +6,24 @@ export default function QuestionListPage() {
   const [questionsfull, setQuestion] = useState([]);
   useEffect(() => {
     console.log("Page opened; Json fetch here")
-    axios.get(`https://fhirquiz.edge.aidbox.app/Question`)
-      .then(res => {
-        setQuestion(res.data.entry);
-        console.log(typeof(questionsfull));
-        console.log(questionsfull);
-      })
+    if (questionsfull.length == 0)
+    {axios.get(`https://fhirquiz.edge.aidbox.app/Question`)
+     .then(res => {
+       setQuestion(res.data.entry);
+       console.log(typeof(questionsfull));
+       console.log(questionsfull);
+     })
+    }
   });
+
+  const longString = "The first person every Patient sees is a receptionist. What resource should we use to keep this important person?";
 
   return (
     <div className="first question-list">
       <div className="first__container">
         <div className="w-full p-6 lg:max-w-md z-50">
           <h1 className="text-3xl mb-7 font-semibold text-center text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600">
-            A long time ago in a galaxy far, far away....
+            Pick your poison
           </h1>
 
         </div>
@@ -28,18 +32,27 @@ export default function QuestionListPage() {
 
       <div>
         <div className="centered content">
-          <header>
-            <h1>Questions</h1>
-          </header>
 
           <div className="grid">
             {questionsfull.map((q, idx)=>{
-              return (<div className="question" key={idx}>
-                        <span className="counter"> {idx} </span>
-                        <span className="name"> {q.resource.question} </span>
-                      </div>)
+              return (<a href={"question/" + q.resource.id}>
+                        <div className="question" key={idx} title={q.resource.question}>
+                          <div>
+                            <div className="arrow-up bg-gradient-to-r from-yellow-400 to-pink-600"> </div>
+                            <div className="text-center"> {idx} </div>
+                            <div className="arrow-down"> </div>
+                          </div>
+                          <span className="name ml-5">
+                            {(q.resource.question.length > 50) ?
+                             q.resource.question.substring(0, 50) + "..." :
+                             q.resource.question}
+                          </span>
+                          <span className="italic mr-5"> by the best Author </span>
+
+                        </div>
+                      </a>)
             })}
-          </div>
+        </div>
 
         </div>
       </div>

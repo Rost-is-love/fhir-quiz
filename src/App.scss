@@ -26,14 +26,45 @@
 }
 
 .content {
-  width: 900px;
+  width: fit-content;
+}
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  border-color: transparent transparent #facc15 transparent;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 10px 0 10px;
+  border-color: #facc15 transparent transparent transparent;
+
+}
+
+.question-list {
+  min-height: 100vh;
 }
 .question-list .question {
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
   color: white;
 }
 
+.question-list .question .counter {
+  width: 30px;
+  text-align: center;
+}
+.question-list .question .name {
+  width: 550px;
+}
 .question-list .first__container {
+  padding-top: 50px;
   height: auto;
   min-height: auto;
 }
