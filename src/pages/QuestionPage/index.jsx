@@ -38,21 +38,21 @@ const submitResponse = async (
   const selectedOption = document.getElementById(selectedElement);
   selectedOption.classList.remove("text-white");
 
-  if (userResponse.trim().toLowerCase() === rightAnswer.trim().toLowerCase()) {
+  const neededValueAndTip = questionData.options.find(
+    (valueAndTip) => valueAndTip.value.trim() === userResponse.trim()
+  );
+  const { tip } = neededValueAndTip;
+  if (tip) {
+    document.querySelector(".tip-text").innerHTML = tip;
     document.querySelector(".tip-place").style.display = "block";
+  } else {
+    document.querySelector(".tip-place").style.display = "none";
+  }
+
+  if (userResponse.trim().toLowerCase() === rightAnswer.trim().toLowerCase()) {
     selectedOption.classList.add("text-green-500");
   } else {
     selectedOption.classList.add("text-red-500");
-    const neededValueAndTip = questionData.options.find(
-      (valueAndTip) => valueAndTip.value.trim() === userResponse.trim()
-    );
-    const { tip } = neededValueAndTip;
-    if (tip) {
-      document.querySelector(".tip-text").innerHTML = tip;
-      document.querySelector(".tip-place").style.display = "block";
-    } else {
-      document.querySelector(".tip-place").style.display = "none";
-    }
   }
 };
 
