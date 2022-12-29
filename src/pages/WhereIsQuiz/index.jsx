@@ -55,15 +55,7 @@ export default function QuestionSuggestionPage() {
 
         <div className="leading-6 text-white tracking-wide mb-7">
 
-          Probably you clicked on this button to know more about our party mode quiz.
-
-          Organization of the qiuz competition is a complex and exciting process. We are planning to collect more questions and create a platform, that will allow you to play in teams and learn FHIR in fun way. We will be happy to organize it in the future.
-
-          If you and your colleagues want to participate in our party mode quiz, please, let us know by submitting the form.
-
-          If you have any ideas on how to create the perfect party mode quiz and you are ready to share it with us, let's create it together!
-
-          To apply for the waiting list or submit cooperation fill this form:
+          Probably, you clicked on this button to know more about our party mode quiz. Organization of the quiz competition is a complex and exciting process. We are planning to collect more questions and create a platform, that will allow you to play in teams and learn FHIR with fun. We will be happy to organize it in the nearest future. If you and your colleagues want to participate in our party mode quiz, please, let us know by submitting this form. If you have any ideas on how to create the perfect party mode quiz and you are ready to share it with us, let's create it together! To apply for the waiting list or submit cooperation, please, fill this form.
 
         </div>
 
