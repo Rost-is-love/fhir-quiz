@@ -17,8 +17,18 @@ export default function AuthorPage() {
           <div className="">
 
               <div>
-                  <h1 className="text-7xl mb-10 font-semibold text-center text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600">
-                      Authors
+                  <h1 className=" tracking-wide text-5xl mt-7 mb-7 leading-normal font-semibold ">
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600">
+                          About
+                      </span>
+                  </h1>
+
+                  <div className="leading-6 text-white tracking-wide mb-7">We believe in this project.</div>
+
+                  <h1 className=" tracking-wide text-5xl mt-7 mb-7 leading-normal font-semibold ">
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600">
+                          Authors
+                      </span>
                   </h1>
 
 

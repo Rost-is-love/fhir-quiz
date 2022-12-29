@@ -26,11 +26,7 @@ const router = createHashRouter([
     element: <QuestionPage />,
   },
   {
-    path: "/mode",
-    element: <ChooseModePage />,
-  },
-  {
-    path: "/authors",
+    path: "/about",
     element: <AuthorPage />,
   },
   {

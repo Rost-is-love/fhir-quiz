@@ -70,7 +70,7 @@ export default function LogInPage({children}) {
                 <div>
                     <Link text="Suggest question" href="#/suggest" />
                     <br />
-                    <Link text="Authors" href="#/authors" />
+                    <Link text="Authors" href="#/about" />
                 </div>
                 <div className="text-white">
                     Developed at <a className="underline" href="https://health-samurai.io" target="_blank">Health Samurai</a>. Powered by <a className="underline" href="https://aidbox.app" target="_blank">aidbox.app</a>.
