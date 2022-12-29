@@ -33,10 +33,24 @@ export default function QuestionListPage() {
         <div className="content">
           <div className="grid">
             {questionsfull.map((q, idx) => {
-              return (
-                <div key={idx} className="question" title={q.resource_data.question.resource.question}>
 
-                  {currentUser?.id == q?.resource_data?.q_resp?.resource?.user?.id && currentUser?.id.length > 0 ?
+              function pickQuestionResp(qResponse) {
+                return qResponse.user.id == currentUser?.id && qResponse.response == q.q_answer
+              }
+
+              function showCheckMark(qResponses) {
+                return qResponses.length > 0 &&  qResponses.filter(pickQuestionResp).length > 0
+              }
+
+              console.log("RESPS: ")
+              console.log(q.q_id)
+              console.log(q?.q_resps.filter(n => n).length)
+              console.log(showCheckMark(q?.q_resps.filter(n => n)))
+
+              return (
+                <div key={idx} className="question" title={q.q_name}>
+
+                  {showCheckMark(q?.q_resps.filter(n => n)) && currentUser?.id.length > 0 ?
 
                   <svg className="w-5 h-5 mr-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g id="SVGRepo_bgCarrier" stroke-width="0"> </g>
@@ -45,18 +59,19 @@ export default function QuestionListPage() {
                    :
                    <div className="w-5 h-5 mr-3"></div>}
 
-                  <a className="name text-transparent bg-white bg-clip-text hover:bg-gradient-to-r hover:from-yellow-400 hover:to-pink-600" href={"#/question/" + q.resource_data.question.id}>
+                  <a className="name text-transparent bg-white bg-clip-text hover:bg-gradient-to-r hover:from-yellow-400 hover:to-pink-600"
+                     href={"#/question/" + q.q_id}>
                     <span>
-                      {q.resource_data.question.resource.question.length > 50
-                       ? q.resource_data.question.resource.question.substring(0, 50) + "..."
-                       : q.resource_data.question.resource.question}
+                      {q.q_name.length > 50
+                       ? q.q_name.substring(0, 50) + "..."
+                       : q.q_name}
                     </span>
                   </a>
-                  <span className="author italic mr-5">by {q.resource_data.user.resource.name.formatted} </span>
+                  <span className="author italic mr-5">by {q.q_author} </span>
 
 
                   <div className="flex items-center">
-                    <div className="text-center"> {q.likecount} votes</div>
+                    <div className="text-center"> {q.l_count} votes</div>
                   </div>
                 </div>
               );
