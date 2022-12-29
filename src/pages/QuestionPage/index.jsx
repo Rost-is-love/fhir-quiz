@@ -11,10 +11,11 @@ const submitResponse = async (
   rightAnswer,
   questionId,
   currentUserId,
-  selectedElement
+  selectedElement,
+  questionData
 ) => {
-  const questionResponse = await axios.post(
-    "https://fhirquiz.edge.aidbox.app/QuestionResponse",
+  const questionResponse = await axios.put(
+    `https://fhirquiz.edge.aidbox.app/QuestionResponse/${currentUserId}_${questionId}`,
     {
       user: {
         resourceType: "User",
@@ -38,9 +39,20 @@ const submitResponse = async (
   selectedOption.classList.remove("text-white");
 
   if (userResponse.trim().toLowerCase() === rightAnswer.trim().toLowerCase()) {
+    document.querySelector(".tip-place").style.display = "block";
     selectedOption.classList.add("text-green-500");
   } else {
     selectedOption.classList.add("text-red-500");
+    const neededValueAndTip = questionData.options.find(
+      (valueAndTip) => valueAndTip.value.trim() === userResponse.trim()
+    );
+    const { tip } = neededValueAndTip;
+    if (tip) {
+      document.querySelector(".tip-text").innerHTML = tip;
+      document.querySelector(".tip-place").style.display = "block";
+    } else {
+      document.querySelector(".tip-place").style.display = "none";
+    }
   }
 };
 
@@ -156,6 +168,13 @@ export default function QuestionPage() {
                   name="default-radio"
                   className="w-4 h-4 accent-pink-500"
                   onClick={() => {
+                    document.querySelector(".tip-place").style.display = "none";
+                    const options =
+                      document.getElementsByClassName("option-text");
+                    [...options].forEach((option) => {
+                      option.classList.remove("text-green-500", "text-red-500");
+                      option.classList.add("text-white");
+                    });
                     setUserResponse(value);
                     setSelectedElement(`label-radio-${i + 1}`);
                   }}
@@ -172,7 +191,7 @@ export default function QuestionPage() {
           })}
         </div>
 
-        <div className="flex justify-between">
+        <div className="flex justify-between mb-10">
           <button
             className="px-6 mr-7 flex items-center rounded-xl text-2xl font-medium justify-center bg-gradient-to-r from-yellow-400 to-pink-600 hover:from-pink-600 hover:to-yellow-400 hover:duration-500"
             onClick={() =>
@@ -181,7 +200,8 @@ export default function QuestionPage() {
                 questionData.answer,
                 questionData.id,
                 currentUser.id,
-                selectedElement
+                selectedElement,
+                questionData
               )
             }
           >
@@ -218,9 +238,13 @@ export default function QuestionPage() {
             </svg>
           </div>
         </div>
+        <div className="tip-place" style={{ display: "none" }}>
+          <h3>Tip:</h3>
+          <p className="tip-text"></p>
+        </div>
 
         {nextQuestion && (
-          <div className="mt-20 rounded-xl bg-gradient-to-r from-yellow-400 to-pink-600 hover:from-pink-600 hover:to-yellow-400 hover:duration-500">
+          <div className="mt-10 rounded-xl bg-gradient-to-r from-yellow-400 to-pink-600 hover:from-pink-600 hover:to-yellow-400 hover:duration-500">
             <a
               href={`#/question/${nextQuestion}`}
               className="p-3 flex items-center rounded-xl text-2xl font-medium justify-center w-full bg-transparent hover:text-white duration-500"
