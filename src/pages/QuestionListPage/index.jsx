@@ -1,6 +1,6 @@
 import "../../App.scss";
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function QuestionListPage() {
   const [questionsfull, setQuestion] = useState([]);
@@ -16,18 +16,14 @@ export default function QuestionListPage() {
     }
   });
 
-  const longString = "The first person every Patient sees is a receptionist. What resource should we use to keep this important person?";
-
   return (
-    <div className="first question-list">
-      <div className="first__container">
+    <div className="question-list">
+      <div className="">
         <div className="w-full p-6 lg:max-w-md z-50">
           <h1 className="text-3xl mb-7 font-semibold text-center text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600">
             Pick your poison
           </h1>
-
         </div>
-
       </div>
 
       <div>
@@ -52,11 +48,9 @@ export default function QuestionListPage() {
                         </div>
                       </a>)
             })}
-        </div>
-
+          </div>
         </div>
       </div>
-
     </div>
   );
 }
