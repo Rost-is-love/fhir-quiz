@@ -147,3 +147,52 @@ PUT /
     tip: You're not alone! Even some production systems fell for it. But let's read the description of the resource carefully. The resource is better suited for service categories. It will come in handy when we group resources.
   - value: ActivityDefinition. A fairly common name. But it makes sense.
     tip: Exactly! The perfect resource for our task! And it will be grouped using HealthcareService.
+
+- id: "11"
+  resourceType: Question
+  author:
+    id: b4e76b90-e2bf-43c3-b6dc-55d24901c4dc
+    resourceType: User
+  question: "Which field can be found in Practitioner but not in PractitionerRole"
+  answer: "qualification"
+  options:
+  - value: "Identifier"
+    tip: "You can find this field in both resources"
+  - value: "active"
+    tip: "You can find this field in both resources"
+  - value: "telecom"
+    tip: "You can find this field in both resources"
+  - value: "qualification"
+    tip: "Well done!"
+
+- id: "12"
+  resourceType: Question
+  author:
+    id: b4e76b90-e2bf-43c3-b6dc-55d24901c4dc
+    resourceType: User
+  question: "Which date will always equals min in Condition"
+  answer: "recordedDate"
+  options:
+  - value: "onsetDateTime"
+    tip: "Nope. It means actual date and is always later or equal recordedDate"
+  - value: "recordedDate"
+    tip: "Yes! It means time of the first version of the resource"
+  - value: "abatementDateTime"
+    tip: "It is a date of resolution so it definitely later than recordedDate"
+
+- id: "13"
+  resourceType: Question
+  author:
+    id: b4e76b90-e2bf-43c3-b6dc-55d24901c4dc
+    resourceType: User
+  question: "Dart Vader: “Luke, I am your XXX”. How can we connect him to Luke Skywalker?"
+  answer: "RelatedPerson"
+  options:
+  - value: "RelatedPerson"
+    tip: "Father should be saved in this resource"
+  - value: "Practitioner"
+    tip: "Only if Vader will work in a clinic and do some procedures for him"
+  - value: "PractitionerRole"
+    tip: "If we need to write Vader's profession as Jedi"
+  - value: "Patient"
+    tip: "Can be in another Universe"
