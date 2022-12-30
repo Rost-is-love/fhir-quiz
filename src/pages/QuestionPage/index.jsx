@@ -109,12 +109,6 @@ export default function QuestionPage() {
       const currentQuestion = await axios.get(
         `https://fhirquiz.edge.aidbox.app/$query/question-data?currentUserId=${currentUser.id}&questionId=${questionId}`
       );
-
-      setQuestionData(currentQuestion.data?.data[0]?.resource);
-      if (currentQuestion.data?.data[0]?.resource?.like?.id) {
-        setLike(true);
-      }
-
       const allQuestions = await axios.get(
         `https://fhirquiz.edge.aidbox.app/$query/questions`
       );
@@ -124,7 +118,12 @@ export default function QuestionPage() {
         allQuestions.data.data,
         currentUser.id
       );
+
+      setQuestionData(currentQuestion.data?.data[0]?.resource);
       setNextQuestion(nextQeust);
+      if (currentQuestion.data?.data[0]?.resource?.like?.id) {
+        setLike(true);
+      }
     }
 
     if (currentUser) {
