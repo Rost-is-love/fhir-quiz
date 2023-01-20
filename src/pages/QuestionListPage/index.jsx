@@ -18,7 +18,6 @@ export default function QuestionListPage () {
   return (
     <div className='question-list w-full z-50'>
       <PageTitle title={'Questions'} />
-
       <div className='grid content'>
         {questions.map((question) => (
           <Question

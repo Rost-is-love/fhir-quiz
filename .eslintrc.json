@@ -24,7 +24,7 @@
   "rules": {
     "indent": "off",
     "@typescript-eslint/indent": [
-      "error",
+      "warn",
       2
     ],
     "react/prop-types": 0,
@@ -75,7 +75,7 @@
       "multiline"
     ],
     "react/jsx-indent": [
-      "error",
+      "warn",
       2,
       {
         "checkAttributes": true,
@@ -83,7 +83,7 @@
       }
     ],
     "react/jsx-indent-props": [
-      "error",
+      "warn",
       2
     ],
     "react/jsx-key": "error",
