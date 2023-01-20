@@ -6,7 +6,7 @@ import { PageTitle } from '../../shared/PageTitle'
 import { Question } from './components/Question'
 
 export default function QuestionListPage () {
-  let [ questions, setQuestion ] = useState([])
+  let [questions, setQuestion] = useState([])
 
   useEffect(() => {
     axios.get('https://fhirquiz.edge.aidbox.app/$query/questions')

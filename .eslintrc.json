@@ -50,14 +50,6 @@
     ],
     "prefer-const": "off",
     "prefer-let/prefer-let": "error",
-    "array-bracket-spacing": [
-      "error",
-      "always",
-      {
-        "objectsInArrays": false,
-        "arraysInArrays": false
-      }
-    ],
     "jsx-quotes": [
       "error",
       "prefer-single"

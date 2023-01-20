@@ -28,6 +28,7 @@
 .content {
   width: fit-content;
 }
+
 .arrow-up {
   width: 0;
   height: 0;
@@ -48,13 +49,16 @@
 .question-list {
   text-align: left;
 }
+
 .main_content {
   min-height: calc(100vh - 160px - 60px - 1rem - 3rem);
 }
+
 .show_on_top {
   position: relative;
   z-index: 100;
 }
+
 .question-list .question {
   margin-bottom: 20px;
   display: flex;
@@ -62,16 +66,20 @@
   font-size: 20px;
   color: white;
 }
+
 .question-list .question .author {
   min-width: 200px;
 }
+
 .question-list .question .counter {
   width: 30px;
   text-align: center;
 }
+
 .question-list .question .name {
   width: 550px;
 }
+
 .question-list .first__container {
   padding-top: 50px;
   height: auto;

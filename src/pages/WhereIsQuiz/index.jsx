@@ -3,52 +3,54 @@ import { useStore } from '@nanostores/react'
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 
+import { SubmitButton } from '../../shared/SubmitButton'
 import { user } from '../../store/user'
 
-function suggestQuestion (e, suggestion, userId, setSuggested) {
-  axios
+const suggestQuestion = async (suggestion, userId, setSuggested) => {
+  await axios
     .post('https://fhirquiz.edge.aidbox.app/QuestionSuggestion',
       userId ? { ...suggestion, user: { id: userId, resourceType: 'User' } } : suggestion)
-    .then((res) => {
-      console.log(res.data.entry)
-      setSuggested(true)
-    })
+  setSuggested(true)
 }
 
+const Suggested = () => (
+  <div>
+    <h1 className=' tracking-wide text-5xl mt-7 mb-7 leading-normal font-semibold '>
+      <span className='text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600'>
+        Where is the quiz?
+      </span>
+    </h1>
+
+    <div className='leading-6 text-white tracking-wide mb-7'>
+      Thank you for submitting the form. We will review it and put you in the waiting list or get back to you.
+    </div>
+
+    <span>
+      In the meantime you can study FHIR with{' '}
+      <a
+        className='cursor-pointer text-transparent bg-white bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600'
+        href='#/questions'
+      >
+        public questions
+      </a>
+      .
+    </span>
+  </div>
+)
+
 export default function QuestionSuggestionPage () {
-  let [ suggested, setSuggested ] = useState(false)
-  let [ suggestion, setSuggestion ] = useState(null)
+  let [suggested, setSuggested] = useState(false)
+  let [suggestion, setSuggestion] = useState(null)
   let currentUser = useStore(user)
-  let [ email, setEmail ] = useState(null)
+  let [email, setEmail] = useState(null)
 
   useEffect(() => {
     setEmail(currentUser?.email)
-  }, [ currentUser ])
+  }, [currentUser])
 
   if (suggested) {
     return (
-      <div>
-        <h1 className=' tracking-wide text-5xl mt-7 mb-7 leading-normal font-semibold '>
-          <span className='text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600'>
-            Where is the quiz?
-          </span>
-        </h1>
-
-        <div className='leading-6 text-white tracking-wide mb-7'>
-          Thank you for submitting the form. We will review it and put you in the waiting list or get back to you.
-        </div>
-
-        <span>
-          In the meantime you can study FHIR with{' '}
-          <a
-            className='cursor-pointer text-transparent bg-white bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-600'
-            href='#/questions'
-          >
-            public questions
-          </a>
-          .
-        </span>
-      </div>
+      <Suggested />
     )
   } else {
     return (
@@ -87,30 +89,10 @@ export default function QuestionSuggestionPage () {
               onChange={(e) => setSuggestion(e.target.value)}
             />
           </div>
-
-          {suggestion && email
-            ? (
-              <div className='w-40'>
-                <button
-                  className='cursor-pointer flex mt-4 p-1 gap-x-2 rounded-xl bg-gradient-to-r from-yellow-400 to-pink-600 hover:from-pink-600 hover:to-yellow-400 hover:duration-500'
-                  onClick={(e) => suggestQuestion(e, { type: 'where-is-quiz', email, suggestion }, currentUser?.id, setSuggested)}
-                >
-                  <span className='tracking-wide p-2 flex rounded-xl text-xl font-medium justify-center w-full bg-transparent hover:text-white duration-500'>
-                    Submit
-                  </span>
-                </button>
-              </div>
-            )
-            : (
-              <div className='w-40'>
-                <div className='flex mt-4 p-1 gap-x-2 rounded-xl bg-gradient-to-r from-gray-400 to-gray-600 text-gray-800'>
-                  <span className='tracking-wide p-2 flex rounded-xl text-xl font-medium justify-center w-full bg-transparent'>
-                    Submit
-                  </span>
-                </div>
-              </div>
-            )}
-
+          <SubmitButton
+            onClick={() => suggestQuestion({ type: 'suggestion', email, suggestion }, currentUser?.id, setSuggested)}
+            disabled={!email || !suggestion}
+          />
         </div>
       </div>
     )

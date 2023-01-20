@@ -6,8 +6,8 @@ import '../../App.scss'
 import { LikeButton } from './LikeButton'
 
 export const Question = ({ setQuestionData, questionData, currentUser }) => {
-  let [ selectedOptionValue, setSelectedOptionValue ] = useState('')
-  let [ resultVisible, setResultVisible ] = useState(false)
+  let [selectedOptionValue, setSelectedOptionValue] = useState('')
+  let [resultVisible, setResultVisible] = useState(false)
   let tip = questionData.options.find(
     (valueAndTip) => valueAndTip.value.trim() === selectedOptionValue.trim()
   )?.tip

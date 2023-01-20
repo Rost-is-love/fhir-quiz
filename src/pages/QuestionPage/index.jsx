@@ -41,8 +41,8 @@ const getNextQuestion = (currentQuestion, allQuestions, userId) => {
 
 export default function QuestionPage () {
   let currentUser = useStore(user)
-  let [ questionData, setQuestionData ] = useState(null)
-  let [ nextQuestion, setNextQuestion ] = useState(null)
+  let [questionData, setQuestionData] = useState(null)
+  let [nextQuestion, setNextQuestion] = useState(null)
   let params = useParams()
   let questionId = params.id
 
@@ -71,7 +71,7 @@ export default function QuestionPage () {
         console.error(e)
       })
     }
-  }, [ questionId, currentUser, nextQuestion ])
+  }, [questionId, currentUser, nextQuestion])
 
   if (questionData) {
     return (
