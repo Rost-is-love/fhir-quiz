@@ -17,11 +17,22 @@ export function UserInfo () {
   if (!user) {
     return (
       <div>
+        Sign in with
+        {" "}
         <a
           className='text-transparent bg-white bg-clip-text hover:bg-gradient-to-r hover:from-yellow-400 hover:to-pink-600'
           href='https://fhirquiz.edge.aidbox.app/auth/redirect/github'
         >
-          Sign in
+          Github
+        </a>
+        {" "}
+        or
+        {" "}
+        <a
+          className='text-transparent bg-white bg-clip-text hover:bg-gradient-to-r hover:from-yellow-400 hover:to-pink-600'
+          href='https://fhirquiz.edge.aidbox.app/auth/redirect/github'
+        >
+          Google
         </a>
       </div>
     )
