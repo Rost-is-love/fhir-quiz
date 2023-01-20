@@ -1,7 +1,7 @@
-import { atom } from "nanostores";
+import { atom } from 'nanostores'
 
-export const user = atom(null);
+export const user = atom(null)
 
-export function addUser(userData) {
-  user.set(userData);
+export function addUser (userData) {
+  user.set(userData)
 }
