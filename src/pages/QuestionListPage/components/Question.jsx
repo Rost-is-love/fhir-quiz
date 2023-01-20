@@ -33,10 +33,10 @@ export function Question ({ question }) {
         {question.q_name}
       </a>
 
-      <span className='author italic mr-5'>by {question.q_author}</span>
+      <span className='author italic mr-5 max-[800px]:hidden'>by {question.q_author}</span>
 
       <div className='flex items-center'>
-        <div className='text-center'>{question.l_count} votes</div>
+        <div className='text-center whitespace-nowrap'>{question.l_count} votes</div>
       </div>
     </div>
   )

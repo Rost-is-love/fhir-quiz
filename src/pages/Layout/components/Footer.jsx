@@ -4,7 +4,7 @@ import { Link } from './Link'
 
 export function Footer () {
   return (
-    <div className='footer show_on_top root flex shrink-0 basis-auto justify-between items-end pt-20 pb-4 z-100'>
+    <div className='footer show_on_top flex shrink-0 basis-auto justify-between items-end pt-20 pb-4 px-8 z-100 max-[700px]:flex-col max-[700px]:items-start'>
       <div>
         <Link
           text='Where is the quiz?'
@@ -17,7 +17,7 @@ export function Footer () {
         />
       </div>
 
-      <div className='text-white'>
+      <div className='text-white max-[700px]:mt-4'>
         Developed at
         {' '}
         <a

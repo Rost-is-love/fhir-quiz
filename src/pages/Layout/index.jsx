@@ -3,12 +3,12 @@ import '../../App.scss'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 
-export default function LogInPage ({ children }) {
+export default function Layout ({ children }) {
   return (
-    <div>
+    <div className='flex flex-col'>
       <Header />
 
-      <div className='main_content root text-white grow'>
+      <div className='max-w-4xl self-center px-8 text-white grow'>
         {children}
       </div>
 
