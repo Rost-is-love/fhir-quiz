@@ -5,7 +5,7 @@ import { Header } from './components/Header'
 
 export default function Layout ({ children }) {
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col grow'>
       <Header />
 
       <div className='max-w-4xl self-center px-8 text-white grow'>
