@@ -18,19 +18,19 @@ export function UserInfo () {
     return (
       <div>
         Sign in with
-        {" "}
+        {' '}
         <a
           className='text-transparent bg-white bg-clip-text hover:bg-gradient-to-r hover:from-yellow-400 hover:to-pink-600'
           href='https://fhirquiz.edge.aidbox.app/auth/redirect/github'
         >
           Github
         </a>
-        {" "}
+        {' '}
         or
-        {" "}
+        {' '}
         <a
           className='text-transparent bg-white bg-clip-text hover:bg-gradient-to-r hover:from-yellow-400 hover:to-pink-600'
-          href='https://fhirquiz.edge.aidbox.app/auth/redirect/github'
+          href='https://fhirquiz.edge.aidbox.app/auth/redirect/google'
         >
           Google
         </a>

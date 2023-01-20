@@ -26,55 +26,55 @@ export default function LogInPage () {
             }}
           >
             {currentUser?.id
-             ? (
-               <div
-                 style={{ flexBasis: '400px' }}
-                 className='flex mt-4 p-1 gap-x-2 rounded-xl bg-gradient-to-r from-yellow-400 to-pink-600 hover:from-pink-600 hover:to-yellow-400 hover:duration-500'
-               >
+              ? (
+                <div
+                  style={{ flexBasis: '400px' }}
+                  className='flex mt-4 p-1 gap-x-2 rounded-xl bg-gradient-to-r from-yellow-400 to-pink-600 hover:from-pink-600 hover:to-yellow-400 hover:duration-500'
+                >
 
-                 <a
-                   href='#/questions'
-                   className='p-6 flex items-center rounded-xl text-4xl font-medium justify-center w-full bg-transparent'
-                 >
-                   Go to questions
-                 </a>
-               </div>
-             )
-             : (
-               <div>
-                 <div
-                   style={{ flexBasis: '400px' }}
-                   className='flex mt-4 p-1 gap-x-2 rounded-xl bg-gradient-to-r from-yellow-400 to-pink-600 hover:from-pink-600 hover:to-yellow-400 hover:duration-500'
-                 >
-                   <a
-                     href='https://fhirquiz.edge.aidbox.app/auth/redirect/github'
-                     className='p-6 flex items-center rounded-xl text-4xl font-medium justify-center w-full bg-transparent hover:from-pink-600 hover:to-yellow-400 duration-500'
-                   >
-                     Sign in with Github
-                   </a>
-                 </div>
+                  <a
+                    href='#/questions'
+                    className='p-6 flex items-center rounded-xl text-4xl font-medium justify-center w-full bg-transparent'
+                  >
+                    Go to questions
+                  </a>
+                </div>
+              )
+              : (
+                <div>
+                  <div
+                    style={{ flexBasis: '400px' }}
+                    className='flex mt-4 p-1 gap-x-2 rounded-xl bg-gradient-to-r from-yellow-400 to-pink-600 hover:from-pink-600 hover:to-yellow-400 hover:duration-500'
+                  >
+                    <a
+                      href='https://fhirquiz.edge.aidbox.app/auth/redirect/github'
+                      className='p-6 flex items-center rounded-xl text-4xl font-medium justify-center w-full bg-transparent hover:from-pink-600 hover:to-yellow-400 duration-500'
+                    >
+                      Sign in with Github
+                    </a>
+                  </div>
 
-                 <div
-                   style={{ flexBasis: '400px' }}
-                   className='flex mt-4 p-1 gap-x-2 rounded-xl bg-gradient-to-r from-yellow-400 to-pink-600 hover:from-pink-600 hover:to-yellow-400 hover:duration-500'
-                 >
-                   <a
-                     href='https://fhirquiz.edge.aidbox.app/auth/redirect/google'
-                     className='p-6 flex items-center rounded-xl text-4xl font-medium justify-center w-full bg-transparent hover:from-pink-600 hover:to-yellow-400 duration-500'
-                   >
-                     Sign in with Google
-                   </a>
-                 </div>
-               </div>
-             )}
-    </div>
-    </div>
-    </div>
-    <div className='stars-bg'>
-      <div id='stars' />
-      <div id='stars2' />
-      <div id='stars3' />
-    </div>
+                  <div
+                    style={{ flexBasis: '400px' }}
+                    className='flex mt-4 p-1 gap-x-2 rounded-xl bg-gradient-to-r from-yellow-400 to-pink-600 hover:from-pink-600 hover:to-yellow-400 hover:duration-500'
+                  >
+                    <a
+                      href='https://fhirquiz.edge.aidbox.app/auth/redirect/google'
+                      className='p-6 flex items-center rounded-xl text-4xl font-medium justify-center w-full bg-transparent hover:from-pink-600 hover:to-yellow-400 duration-500'
+                    >
+                      Sign in with Google
+                    </a>
+                  </div>
+                </div>
+              )}
+          </div>
+        </div>
+      </div>
+      <div className='stars-bg'>
+        <div id='stars' />
+        <div id='stars2' />
+        <div id='stars3' />
+      </div>
     </div>
   )
 }
