@@ -39,7 +39,7 @@ PUT /
   resourceType: AidboxConfig
   redirects:
     default-page: /Static/index.html/$show
-
+    login-redirect: /Static/index.html/$show
 ```
 
 ```yaml
